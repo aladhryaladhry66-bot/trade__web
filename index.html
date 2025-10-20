@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="الجنرال للوساطة المالية — حلول إيداع وسحب آمنة وسريعة في عالم العملات الرقمية مع دعم فني 24/7" />
+  <meta name="theme-color" content="#1a252f" />
+  <title>الجنرال للوساطة المالية</title>
+
+  <!-- Performance: preconnect to Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome (defer for performance; if you have a kit replace accordingly) -->
+  <script defer src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+  <style>
+    /* Accessibility helper for screen-reader-only text */
+    .sr-only {
+      position: absolute !important;
+      height: 1px; width: 1px;
+      overflow: hidden;
+      clip: rect(1px, 1px, 1px, 1px);
+      white-space: nowrap;
+      border: 0; padding: 0; margin: -1px;
+    }
+
+    /* Base */
+    :root {
+      --bg: #f7f9fb;
+      --card: #ffffff;
+      --muted: #555;
+      --accent: #007bff;
+      --accent-2: #27ae60;
+      --primary-dark: #1a252f;
+      --gold: #f1c40f;
+      --shadow: rgba(0,0,0,0.06);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: "Tajawal", sans-serif; scroll-behavior: smooth; }
+    html,body { height: 100%; }
+    body {
+      background-color: var(--bg);
+      color: #222;
+      direction: rtl;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    /* Skip link for keyboard users */
+    .skip-link {
+      position: absolute;
+      right: 1rem;
+      top: 1rem;
+      background: var(--accent);
+      color: #fff;
+      padding: 0.5rem 0.75rem;
+      border-radius: 6px;
+      transform: translateY(-120%);
+      transition: transform 0.2s ease;
+      z-index: 1000;
+    }
+    .skip-link:focus { transform: translateY(0%); outline: 2px solid #fff; }
+
+    header[role="banner"] {
+      background: linear-gradient(135deg, #2c3e50, var(--primary-dark));
+      color: #fff;
+      text-align: center;
+      padding: 3rem 1rem;
+      border-radius: 0 0 50px 50px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      position: relative;
+    }
+    header .logo {
+      font-size: 3rem;
+      color: var(--gold);
+      margin-bottom: 1rem;
+      animation: float 3s infinite ease-in-out;
+      display: inline-block;
+    }
+    header h1 { font-size: 2.2rem; font-weight: 700; }
+    header p { font-size: 1rem; color: #e4e7ea; margin-top: 0.5rem; }
+
+    @keyframes float { 0%,100% { transform: translateY(0);} 50% { transform: translateY(-7px);} }
+
+    main { padding: 2rem 1rem; max-width: 960px; margin: -2.5rem auto 2rem; }
+
+    section.card {
+      background-color: var(--card);
+      margin: 1.5rem 0;
+      padding: 1.75rem;
+      border-radius: 20px;
+      box-shadow: 0 3px 12px var(--shadow);
+      transition: transform 0.25s ease;
+    }
+    section.card:hover { transform: translateY(-4px); }
+
+    h2 {
+      color: #233040;
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+      border-inline-start: 5px solid var(--accent); /* logical property for RTL */
+      padding-inline-start: 0.6rem;
+    }
+    p { color: var(--muted); font-size: 1rem; }
+
+    /* Buttons */
+    .buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      margin-top: 1rem;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 1rem;
+      font-weight: 700;
+      padding: 0.9rem 1.1rem;
+      border-radius: 12px;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+    }
+    .btn--primary {
+      background: var(--accent-2);
+      color: #fff;
+    }
+    .btn--primary:hover { background: #1e8449; }
+    .btn--muted {
+      background: #7f8c8d;
+      color: #fff;
+    }
+    .btn[aria-disabled="true"], .btn:disabled {
+      opacity: 0.75;
+      cursor: not-allowed;
+    }
+
+    /* Services */
+    .services {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1rem;
+      justify-content: space-between;
+    }
+    .service {
+      flex: 1 1 260px;
+      background: #f9fafc;
+      border-radius: 12px;
+      padding: 1rem;
+      text-align: center;
+      box-shadow: 0 2px 6px var(--shadow);
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+    .service:hover { transform: translateY(-6px); background: #eef3fa; }
+    .service i { color: var(--accent); font-size: 1.5rem; margin-bottom: 0.5rem; }
+
+    /* Steps */
+    .steps { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1rem; justify-content: space-between; }
+    .step {
+      flex: 1 1 220px;
+      background: #f9fafc;
+      padding: 0.9rem;
+      border-radius: 12px;
+      text-align: center;
+      position: relative;
+    }
+    .step::before {
+      content: attr(data-step);
+      position: absolute;
+      top: -12px;
+      inline-end: -12px; /* logical property for RTL */
+      background: var(--accent);
+      color: #fff;
+      border-radius: 50%;
+      width: 30px; height: 30px;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    }
+
+    /* FAQ */
+    .faq details {
+      background: #f9fafc;
+      border: 1px solid #e2e6ea;
+      border-radius: 10px;
+      padding: 0.9rem;
+      margin-bottom: 0.6rem;
+    }
+    summary { font-weight: 700; color: var(--accent); cursor: pointer; }
+    details p { margin-top: 0.6rem; color: var(--muted); }
+
+    footer[role="contentinfo"] {
+      background: #fff;
+      border-top: 1px solid #e3e6ea;
+      padding: 1rem;
+      text-align: center;
+      margin-top: 2rem;
+      color: var(--muted);
+      font-size: 0.95rem;
+      box-shadow: 0 -2px 6px rgba(0,0,0,0.03);
+    }
+    footer span { color: var(--accent); font-weight: 700; }
+
+    /* Responsive */
+    @media (max-width: 680px) {
+      header h1 { font-size: 1.6rem; }
+      main { margin-top: -1.6rem; padding: 1rem; }
+      .services, .steps { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">تخطي إلى المحتوى</a>
+
+  <header role="banner">
+    <div class="logo" aria-hidden="true"><i class="fas fa-hand-holding-usd"></i></div>
+    <h1>الجنرال للوساطة المالية</h1>
+    <p>حلول مالية آمنة وسريعة في عالم العملات الرقمية</p>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <section class="card" aria-labelledby="team-title">
+      <h2 id="team-title">من هو فريق الجنرال؟</h2>
+      <p>
+        فريق الجنرال هو مجموعة من الخبراء في الوساطة المالية بين المستخدمين ومنصات التداول والربح الثنائي. نساعد في حل مشاكل الإيداع والسحب بسرعة وأمان، مع دعم كامل طوال العملية لضمان تجربة مريحة وآمنة.
+      </p>
+
+      <div class="buttons" aria-hidden="false">
+        <!-- CTA: made a real button for accessibility; keep disabled if you want it inactive -->
+        <button class="btn btn--muted" aria-disabled="true" disabled title="هذه الخاصية غير متاحة حالياً">سارع لتقديم طلبك وفريقنا يسرع في تسليمك الأموال</button>
+
+        <!-- External link opened safely -->
+        <a class="btn btn--primary" href="https://trade-web-delta.vercel.app/" target="_blank" rel="noopener noreferrer">
+          <i class="fas fa-arrow-left" aria-hidden="true"></i>
+          <span>انتقل إلى صفحة إدخال البيانات</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="card" aria-labelledby="services-title">
+      <h2 id="services-title">خدماتنا</h2>
+      <div class="services" role="list">
+        <div class="service" role="listitem">
+          <i class="fas fa-wallet" aria-hidden="true"></i>
+          <h3>الإيداع والسحب</h3>
+          <p>تنفيذ عمليات الإيداع والسحب من وإلى المنصات بسرعة عالية وبأمان تام.</p>
+        </div>
+        <div class="service" role="listitem">
+          <i class="fas fa-headset" aria-hidden="true"></i>
+          <h3>دعم فني 24/7</h3>
+          <p>فريق متاح على مدار الساعة للإجابة على استفساراتك ومتابعة عملياتك المالية.</p>
+        </div>
+        <div class="service" role="listitem">
+          <i class="fas fa-shield-alt" aria-hidden="true"></i>
+          <h3>ضمان الأمان</h3>
+          <p>نطبق معايير أمان مشددة لحماية أموالك ومعلوماتك خلال كل عملية.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="card" aria-labelledby="how-title">
+      <h2 id="how-title">كيف نعمل؟</h2>
+      <div class="steps" role="list">
+        <div class="step" data-step="1" role="listitem">
+          <i class="fas fa-edit fa-2x" aria-hidden="true" style="color:var(--accent);margin-bottom:0.5rem;"></i>
+          <p>قم بإدخال بياناتك في النموذج المخصص عبر الرابط.</p>
+        </div>
+        <div class="step" data-step="2" role="listitem">
+          <i class="fas fa-check-circle fa-2x" aria-hidden="true" style="color:var(--accent-2);margin-bottom:0.5rem;"></i>
+          <p>فريقنا يتحقق من العملية ويبدأ بالإجراء المطلوب بأسرع وقت.</p>
+        </div>
+        <div class="step" data-step="3" role="listitem">
+          <i class="fas fa-coins fa-2x" aria-hidden="true" style="color:var(--gold);margin-bottom:0.5rem;"></i>
+          <p>استلم أموالك مباشرة في محفظتك بعد تأكيد العملية.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="card" aria-labelledby="faq-title">
+      <h2 id="faq-title">الأسئلة الشائعة</h2>
+      <div class="faq">
+        <details>
+          <summary>كم يستغرق تنفيذ الطلب؟</summary>
+          <p>عادة تتم معالجة الطلبات خلال 24 إلى 72 ساعة حسب نوع العملية والمنصة.</p>
+        </details>
+        <details>
+          <summary>هل هناك رسوم على السحب؟</summary>
+          <p>نعم، رسوم السحب الثابتة هي 25 USDT عبر شبكة TRC20.</p>
+        </details>
+        <details>
+          <summary>هل عمليات الإيداع آمنة؟</summary>
+          <p>نعم، جميع عملياتنا مشفرة وآمنة، ونتعامل فقط مع محافظ ومنصات موثوقة.</p>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <footer role="contentinfo">
+    جميع الحقوق محفوظة © 2025 <span>الجنرال للوساطة المالية</span>
+  </footer>
+</body>
+</html>
